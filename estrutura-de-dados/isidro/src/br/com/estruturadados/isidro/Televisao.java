@@ -1,4 +1,4 @@
-package br.com.estruturadedados.isidro.tiposabstratos;
+package br.com.estruturadados.isidro;
 
 public class Televisao {
     String marca;
@@ -37,7 +37,7 @@ public class Televisao {
 
     public void defineCanal(int ca) {
         if (ligado){
-            canal = canal;
+            canal = ca;
             System.out.println("TV "+marca+" com canal definido para "+canal);
         } else {
             System.out.println("Por favor, ligue antes a TV "+marca);
@@ -48,5 +48,4 @@ public class Televisao {
         volume++;
         System.out.println("TV "+marca+": volume atual "+volume);
     }
-
 }

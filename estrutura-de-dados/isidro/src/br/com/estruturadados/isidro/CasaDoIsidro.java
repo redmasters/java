@@ -1,8 +1,9 @@
-package br.com.estruturadedados.isidro.tiposabstratos;
+package br.com.estruturadados.isidro;
 
 public class CasaDoIsidro {
     public static void main(String[] args) {
-        Televisao t1, t2;
+        Televisao t1;
+        Televisao t2;
 
         t1 = new Televisao();
         t2 = new Televisao();
@@ -19,6 +20,6 @@ public class CasaDoIsidro {
 
         t1.desligar();
         t2.desligar();
-
     }
+
 }

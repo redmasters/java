@@ -1,6 +1,6 @@
-package br.com.estruturadedados.isidro.tiposabstratos;
+package br.com.estruturadados.isidro;
 
-public class ClasseQueUsaTV {
+public class ClasseQueUsaTv {
     public static void main(String[] args) {
         Televisao t = new Televisao();
         t.defineMarca("Samsung");
