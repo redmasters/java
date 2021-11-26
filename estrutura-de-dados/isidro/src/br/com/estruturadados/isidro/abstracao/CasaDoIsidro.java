@@ -1,4 +1,4 @@
-package br.com.estruturadados.isidro;
+package br.com.estruturadados.isidro.abstracao;
 
 public class CasaDoIsidro {
     public static void main(String[] args) {
@@ -13,7 +13,6 @@ public class CasaDoIsidro {
 
         t1.ligar();
         t2.ligar();
-
 
         t1.defineCanal(2);
         t1.defineVolume(25);

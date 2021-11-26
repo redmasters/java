@@ -1,4 +1,4 @@
-package br.com.estruturadados.isidro;
+package br.com.estruturadados.isidro.abstracao;
 
 public class ClasseQueUsaTv {
     public static void main(String[] args) {
