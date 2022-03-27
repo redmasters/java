@@ -1,4 +1,4 @@
-package red.models;
+package io.red.models;
 
 public class Funcionario {
     private String nome;

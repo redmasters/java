@@ -55,6 +55,14 @@ public class Capitulo6 {
         usuarios.sort(comparing(Usuario::getPontos).reversed());
         usuarios.forEach(u -> System.out.println(u.getPontos()));
 
+        // Referenciando Metodos em Instancia
+        Usuario lucky = new Usuario("Lucky", 10);
+        Runnable bloco = lucky::tornaModerador;
+        bloco.run();
+
+        Runnable bloco1 = lucky::tornaModerador;
+        Runnable bloco2 = () -> lucky.tornaModerador();
+
     }
 
 }
