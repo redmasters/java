@@ -2,8 +2,9 @@ package io.red.models;
 
 public class Designer extends Funcionario{
 
+    @Override
     public double getBonificacao() {
-        return super.getBonificacao() + 200;
+        return 200;
     }
 
 }

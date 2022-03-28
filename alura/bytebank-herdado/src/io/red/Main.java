@@ -7,7 +7,7 @@ import io.red.models.Gerente;
 
 public class Main {
     public static void main(String[] args) {
-        Funcionario red = new Funcionario();
+        Funcionario red = new Gerente();
         ControleBonificacao financeiro = new ControleBonificacao();
         red.setNome("Red");
         red.setCpf("03030");
