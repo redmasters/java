@@ -1,7 +1,7 @@
 package io.red.bank;
 
-public class Conta {
-    private double saldo;
+public abstract class Conta {
+    protected double saldo;
     private String nome;
     private int agencia;
     private int numero;
@@ -39,17 +39,7 @@ public class Conta {
 
     }
 
-    public boolean deposita(double valor) {
-        if (valor == 0) {
-            System.out.println("Insira um valor maior que zero");
-            return false;
-        } else {
-            System.out.println("Depositado: " + valor);
-            this.saldo = this.saldo + valor;
-            return true;
-        }
-
-    }
+    public abstract boolean deposita(double valor);
 
     public double getSaldo() {
         System.out.println("Saldo de: ");

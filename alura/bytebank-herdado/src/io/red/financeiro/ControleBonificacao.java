@@ -1,6 +1,6 @@
 package io.red.financeiro;
 
-import io.red.models.Funcionario;
+import io.red.empresa.Funcionario;
 
 public class ControleBonificacao {
 

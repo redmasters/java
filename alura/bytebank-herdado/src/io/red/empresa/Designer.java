@@ -1,6 +1,6 @@
-package io.red.models;
+package io.red.empresa;
 
-public class Designer extends Funcionario{
+public class Designer extends Funcionario {
 
     @Override
     public double getBonificacao() {

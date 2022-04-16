@@ -11,5 +11,24 @@ public class MainBanco {
         System.out.println(cc.getSaldo());
         System.out.println("\n--------------");
 
+        ContaCorrente cc3 = new ContaCorrente(
+                "Corrente3",
+                333,
+                233
+        );
+
+        cc3.deposita(100.0);
+        System.out.println(cc3.getSaldo());
+
+        SeguroDeVida seguro = new SeguroDeVida();
+
+        CalculadorImposto calc = new CalculadorImposto();
+
+        calc.registra(cc);
+        calc.registra(seguro);
+
+        System.out.println("Calc imposto");
+        System.out.println(calc.getTotalImposto());
+
     }
 }

@@ -1,4 +1,4 @@
-package io.red.models;
+package io.red.empresa;
 
 public abstract class Funcionario {
     private String nome;

@@ -1,6 +1,6 @@
 package io.red.bank;
 
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta implements Tributavel{
 
     public ContaCorrente (String nome, int agencia, int numero){
         super(nome, agencia, numero);
@@ -13,4 +13,20 @@ public class ContaCorrente extends Conta{
         return true;
     }
 
+    @Override
+    public boolean deposita(double valor) {
+        if (valor == 0) {
+            System.out.println("Insira um valor maior que zero");
+            return false;
+        } else {
+            System.out.println("Depositado: " + valor);
+            super.saldo += valor;
+            return true;
+        }
+    }
+
+    @Override
+    public double getValorImposto() {
+        return super.saldo * 0.01;
+    }
 }
