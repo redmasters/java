@@ -10,7 +10,7 @@ public class Employee {
     }
 
     public void increaseSalary(double percentage){
-        this.grossSalary += getGrossSalary() * percentage / 100;
+        this.grossSalary += (percentage / 100) * getGrossSalary() ;
     }
 
     public String getName() {
