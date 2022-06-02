@@ -4,12 +4,12 @@ public class Student {
     private String nome;
     private static double primeiroSemestre;
     private static double segundoSemestre;
-    private double terceiroSemestre;
+    private static double terceiroSemestre;
 
     static double TRINTA = 30;
-    static double TRINTA_E_CINCO= 35;
+    static double TRINTA_E_CINCO = 35;
 
-    public static Double gravarPrimeiraNota(double primeiraNota) throws RuntimeException{
+    public static Double gravarPrimeiraNota(double primeiraNota) throws RuntimeException {
         return primeiroSemestre = primeiraNota;
     }
 
@@ -17,29 +17,36 @@ public class Student {
         return segundoSemestre = segundaNota;
     }
 
-    public static String imprimirResultado() {
-       if(isPontosNecessarios()){
-           return pontosSuficientes();
-       }
-       return pontosInsuficientes();
-    }
-
-    private static boolean isPontosNecessarios(){
-        return calcularNotas() >= 0;
+    public static Double gravarTerceiraNota(double terceiraNota) {
+        return terceiroSemestre = terceiraNota;
     }
 
     public static double calcularNotas() {
-       return primeiroSemestre + segundoSemestre;
+        return primeiroSemestre + segundoSemestre + terceiroSemestre;
+    }
+
+    private static boolean isPontosNecessarios() {
+        return calcularNotas() >= 60;
+    }
+
+    public static String imprimirResultado() {
+        if (isPontosNecessarios()) {
+            return pontosSuficientes();
+        }
+        return pontosInsuficientes();
     }
 
     private static String pontosSuficientes() {
-        return "FINAL GRADE = " + calcularNotas() +"\nPASS";
+        return "FINAL GRADE = " + calcularNotas() + "\nPASS";
     }
 
     private static String pontosInsuficientes() {
         return "FINAL GRADE = " + calcularNotas() + "\nFAILED" +
-                "\nMISSING POINTS ";
+                "\nMISSING POINTS " + missingPoints();
+    }
 
+    private static double missingPoints() {
+        return 60 - calcularNotas();
     }
 
 

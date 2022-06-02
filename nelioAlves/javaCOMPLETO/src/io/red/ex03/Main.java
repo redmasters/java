@@ -7,6 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Student.gravarPrimeiraNota(sc.nextDouble());
         Student.gravarSegundaNota(sc.nextDouble());
+        Student.gravarTerceiraNota(sc.nextDouble());
         String resultado = Student.imprimirResultado();
         System.out.println(resultado);
 
