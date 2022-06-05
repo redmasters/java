@@ -9,16 +9,16 @@ public class Student {
     static double TRINTA = 30;
     static double TRINTA_E_CINCO = 35;
 
-    public static Double gravarPrimeiraNota(double primeiraNota) throws RuntimeException {
-        return primeiroSemestre = primeiraNota;
+    public static void gravarNotasPrimeroSemestre(double primeiraNota) {
+        primeiroSemestre = primeiraNota;
     }
 
-    public static Double gravarSegundaNota(double segundaNota) {
-        return segundoSemestre = segundaNota;
+    public static void gravarNotasSegundoSemestre(double segundaNota) {
+        segundoSemestre = segundaNota;
     }
 
-    public static Double gravarTerceiraNota(double terceiraNota) {
-        return terceiroSemestre = terceiraNota;
+    public static void gravarNotasTerceiroSemestre(double terceiraNota) {
+        terceiroSemestre = terceiraNota;
     }
 
     public static double calcularNotas() {
