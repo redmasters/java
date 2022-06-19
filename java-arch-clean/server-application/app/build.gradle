@@ -1,0 +1,9 @@
+plugins {
+    id('io.red.springboot-application')
+}
+
+group = "${group}.server-application"
+
+
+dependencies {
+}

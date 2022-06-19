@@ -1,0 +1,12 @@
+plugins {
+    id('java-platform')
+}
+
+group = 'io.red.platform'
+
+dependencies {
+    constraints {
+        api('com.android.tools.build:gradle:4.1.1')
+        api('org.springframework.boot:org.springframework.boot.gradle.plugin:2.4.0')
+    }
+}

@@ -1,0 +1,4 @@
+plugins {
+    id('io.red.commons')
+    id('java-library')
+}
