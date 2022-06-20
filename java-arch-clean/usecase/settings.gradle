@@ -9,7 +9,7 @@ dependencyResolutionManagement {
 }
 
 includeBuild('../plataformas')
-includeBuild('../usecase')
+includeBuild('../domain-model')
 
-rootProject.name = 'server-application'
-include('app')
+rootProject.name = 'usecase'
+include('info')

@@ -1,0 +1,11 @@
+plugins {
+    id('io.red.java-library')
+}
+
+group = "${group}.usecase"
+
+dependencies {
+    api('io.red.user.model:user')
+
+    implementation('com.fasterxml.jackson.core:jackson-databind')
+}

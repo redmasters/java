@@ -1,4 +1,6 @@
-includeBuild('platforms')
+includeBuild('plataformas')
 includeBuild('build-logic')
-includeBuild('server-application')
 
+includeBuild('usecase')
+
+includeBuild('server-application')

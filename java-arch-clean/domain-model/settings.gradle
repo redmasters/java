@@ -9,7 +9,6 @@ dependencyResolutionManagement {
 }
 
 includeBuild('../plataformas')
-includeBuild('../usecase')
 
-rootProject.name = 'server-application'
-include('app')
+rootProject.name = 'domain-model'
+include('user')

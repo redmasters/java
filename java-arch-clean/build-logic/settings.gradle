@@ -3,8 +3,7 @@ dependencyResolutionManagement {
         gradlePluginPortal()
     }
 }
-
-includeBuild('../platforms')
+includeBuild('../plataformas')
 
 rootProject.name = 'build-logic'
 include('commons')

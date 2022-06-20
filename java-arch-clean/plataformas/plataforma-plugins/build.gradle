@@ -1,0 +1,11 @@
+plugins {
+    id('java-platform')
+}
+
+group = 'io.red.plataformas'
+
+dependencies {
+    constraints {
+        api('org.springframework.boot:org.springframework.boot.gradle.plugin:2.7.0')
+    }
+}

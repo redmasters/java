@@ -4,6 +4,6 @@ plugins {
 
 group = "${group}.server-application"
 
-
 dependencies {
+    implementation('io.red.user.usecase:info')
 }

@@ -2,16 +2,19 @@ plugins {
     id('java')
 }
 
-group = 'io.red'
+group = 'io.red.user'
 
 java {
-    sourceCompability = 17
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
+    implementation(platform('io.red.plataformas:plataforma-produto'))
+
     testImplementation('org.junit.jupiter:junit-jupiter')
 }
 
-tasks.named('test') {
+tasks.named("test") {
     useJUnitPlatform()
 }

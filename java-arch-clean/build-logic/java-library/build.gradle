@@ -3,7 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation(platform('io.red.platform:plugins-platform'))
-
+    implementation(platform('io.red.plataformas:plataforma-plugins'))
     implementation(project(':commons'))
 }
