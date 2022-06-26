@@ -13,3 +13,4 @@ includeBuild('../domain-model')
 
 rootProject.name = 'usecase'
 include('info')
+include('users')
