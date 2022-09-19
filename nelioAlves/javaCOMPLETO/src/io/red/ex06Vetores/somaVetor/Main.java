@@ -1,7 +1,5 @@
 package io.red.ex06Vetores.somaVetor;
 
-import com.sun.security.jgss.GSSUtil;
-
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -34,7 +32,6 @@ public class Main {
 
         double avg = soma / vetor.length;
         System.out.println("MEDIA:" + avg);
-
 
 
     }
