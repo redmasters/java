@@ -6,7 +6,7 @@ public class CriarUsuario {
     public CriarUsuario() {
     }
 
-    public User create(final User user){
+    public static User create(User user){
         return user;
     }
 }

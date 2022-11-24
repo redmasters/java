@@ -40,9 +40,7 @@ public class Capitulo2 {
         // O LAMBDA
         System.out.println("---Mostrador2---");
         Consumer<Usuario> mostrador2 =
-            (Usuario u) -> {
-                System.out.println(u.getNome());
-            };
+            (Usuario u) -> { System.out.println(u.getNome());};
 
         System.out.println("---Mostrador3---");
         Consumer<Usuario> mostrador3 =

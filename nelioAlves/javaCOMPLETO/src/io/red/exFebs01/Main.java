@@ -28,6 +28,9 @@ public class Main {
         double porcentagemImpostos = scanner.nextDouble();
         novoCarro.calculaImposto(porcentagemImpostos);
 
+        System.out.println("O carro do modelo: " + novoCarro.getModelo() + "\n" +
+                "Com impostos de " + novoCarro.getImposto() + "\n" +
+                "E custo de distribuicao de " + novoCarro.getPorcentagemDistribuidor());
         System.out.println("Valor Final: " + novoCarro.getValorFinal());
 
     }

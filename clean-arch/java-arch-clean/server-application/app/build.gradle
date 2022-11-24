@@ -6,4 +6,5 @@ group = "${group}.server-application"
 
 dependencies {
     implementation('io.red.user.usecase:info')
+    implementation('io.red.user.usecase:users')
 }
