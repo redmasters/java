@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: jwtAmigoscode
+  profiles:
+    active: ${PROFILE}
