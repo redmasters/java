@@ -1,10 +1,13 @@
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Dijkstra {
   private int vertices[][];
+  private Set<Integer> nosNaoVisitados = new HashSet<>();
 
   public Dijkstra(final int numVertices) {
     vertices = new int[numVertices][numVertices];
@@ -21,17 +24,14 @@ public class Dijkstra {
     vertices[noOrigem][noDestino] = peso;
     vertices[noDestino][noOrigem] = peso;
 
-    getPeso(noOrigem, noDestino);
-
   }
 
-  public List<Integer> getNosNaoVisitados() {
-    var listaNosNaoVisitados = new ArrayList<Integer>();
+  public Set<Integer> getNosNaoVisitados() {
     for (int i = 0; i < vertices.length; i++) {
-      listaNosNaoVisitados.add(i);
+      this.nosNaoVisitados.add(i);
     }
 
-    return listaNosNaoVisitados;
+    return nosNaoVisitados;
 
   }
 
@@ -55,22 +55,34 @@ public class Dijkstra {
   public int getNoMaisProximo(int noOrigem) {
     var noMaisProximo = 0;
     var listaNosNaoVisitados = getNosNaoVisitados();
-    System.out.println("nao visitados: " + listaNosNaoVisitados.toString());
 
     for (Integer integer : listaNosNaoVisitados) {
 
       if (noOrigem < integer) {
         noMaisProximo = integer;
+        System.out.println("no origem: %s, no mais proximo: %s, peso: %s".formatted(noOrigem, noMaisProximo,
+            getPeso(noOrigem, noMaisProximo)));
+        removeVisited(noOrigem, noMaisProximo);
+
         break;
       }
+
     }
-    System.out.println("no mais proximo: " + noMaisProximo);
+    System.out.println("nao visitados: %s".formatted(listaNosNaoVisitados.toString()));
     return noMaisProximo;
   }
 
   public int getPeso(int noOrigem, int noDestino) {
     var peso = vertices[noOrigem][noDestino];
-    System.out.println("peso: " + peso);
     return peso;
+  }
+
+  public void removeVisited(int noOrigem, int noDestino) {
+    var listaNosNaoVisitados = nosNaoVisitados;
+    if (listaNosNaoVisitados.contains(noOrigem) && listaNosNaoVisitados.contains(noDestino)) {
+      listaNosNaoVisitados.remove(Integer.valueOf(noOrigem));
+      listaNosNaoVisitados.remove(Integer.valueOf(noDestino));
+    }
+    getNosNaoVisitados();
   }
 }
