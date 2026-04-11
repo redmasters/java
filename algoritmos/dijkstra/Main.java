@@ -24,6 +24,7 @@ public class Main {
     dijkstra.criarAresta(S4, S6, 2);
     dijkstra.getDistanciaNaoConhecida();
     dijkstra.getNoMaisProximo(S0);
+    dijkstra.getDistanciaConhecida();
 
   }
 }
