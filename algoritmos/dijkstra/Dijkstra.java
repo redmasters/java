@@ -1,107 +1,72 @@
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+import java.util.logging.Logger;
 
 public class Dijkstra {
   private int vertices[][];
-  private Set<Integer> nosNaoVisitados = new HashSet<>();
   private Set<Integer> nosVisitados = new HashSet<>();
+  private List<Integer> listaCaminho = new ArrayList<Integer>();
+  private Map<Integer, Integer> listaDistancia = new HashMap<>();
+  private static Logger log = Logger.getLogger(Dijkstra.class.getName());
 
   public Dijkstra(final int numVertices) {
     vertices = new int[numVertices][numVertices];
   }
 
-  public void criarAresta(final int noOrigem, final int noDestino, final int peso) {
-    if (peso < 0) {
+  public void criarAresta(final int noOrigem, final int noDestino, final int caminho) {
+    if (caminho < 0) {
       throw new InvalidParameterException("Peso negativo");
     }
     if (noOrigem == noDestino) {
       vertices[noOrigem][noDestino] = 0;
     }
 
-    vertices[noOrigem][noDestino] = peso;
-    vertices[noDestino][noOrigem] = peso;
+    vertices[noOrigem][noDestino] = caminho;
+    vertices[noDestino][noOrigem] = caminho;
+    log.info("Aresta criada: %s -> %s, caminho: %s".formatted(noOrigem, noDestino, caminho));
+    criarCaminho(noOrigem, noDestino, caminho);
 
   }
 
-  public Set<Integer> getNosNaoVisitados() {
+  public void criarCaminho(final int noOrigem, final int noDestino, final int caminho) {
     for (int i = 0; i < vertices.length; i++) {
-      this.nosNaoVisitados.add(i);
+
+      if (i == noOrigem) {
+        listaCaminho.add(noOrigem);
+      }
+      if (i == noDestino) {
+        listaCaminho.add(noDestino);
+      }
     }
-
-    return nosNaoVisitados;
-
   }
 
-  public List<Integer> getDistanciaNaoConhecida() {
-    var listaDistanciaNaoConhecida = new ArrayList<Integer>();
-    var distanciaInicial = 0;
-    var distanciaInfinita = Integer.MAX_VALUE;
-    listaDistanciaNaoConhecida.add(distanciaInicial);
+  public List<Integer> getCaminho() {
+    log.info("Caminho criado: %s".formatted(listaCaminho.toString().replace(",", " ->")));
+    return listaCaminho;
+  }
 
-    for (int i = 0; i < vertices.length; i++) {
-      if (i != distanciaInicial) {
-        listaDistanciaNaoConhecida.add(distanciaInfinita);
+  public List<Integer> getDistancia() {
+    if (nosVisitados.isEmpty()) {
+      // distancias com caminhos infinitos
+      for (int i = 0; i < vertices.length; i++) {
+        if (i == 0) {
+          listaDistancia.put(i, 0);
+        } else {
+          listaDistancia.put(i, Integer.MAX_VALUE);
+        }
       }
 
     }
+    var distanciaLista = new ArrayList<>(listaDistancia.entrySet());
 
-    var listaComInfinito = listaDistanciaNaoConhecida.stream()
-        .map(valor -> valor == Integer.MAX_VALUE ? "∞" : valor.toString())
-        .collect(Collectors.toList());
-    System.out.println("distancao nao conhecida: %s".formatted(listaComInfinito.toString()));
-    return listaDistanciaNaoConhecida;
-  }
+    log.info("Distancia criada: %s".formatted(distanciaLista.toString().replace(",", " ->")));
 
-  public int getNoMaisProximo(int noOrigem) {
-    var noMaisProximo = 0;
-    var listaNosNaoVisitados = getNosNaoVisitados();
-    System.out.println("nao visitados: %s".formatted(nosNaoVisitados.toString()));
-
-    for (Integer integer : listaNosNaoVisitados) {
-
-      if (noOrigem < integer) {
-        noMaisProximo = integer;
-        System.out.println("no origem: %s, no mais proximo: %s, peso: %s".formatted(noOrigem, noMaisProximo,
-            getPeso(noOrigem, noMaisProximo)));
-        removeVisited(noOrigem, noMaisProximo);
-
-        break;
-      }
-
-    }
-    System.out.println("visitados: %s".formatted(nosVisitados.toString()));
-    System.out.println("nao visitados: %s".formatted(nosNaoVisitados.toString()));
-    return noMaisProximo;
-  }
-
-  public int getPeso(int noOrigem, int noDestino) {
-    var peso = vertices[noOrigem][noDestino];
-    return peso;
-  }
-
-  public void removeVisited(int noOrigem, int noDestino) {
-    // var listaNosNaoVisitados = nosNaoVisitados;
-    if (nosNaoVisitados.contains(noOrigem) && nosNaoVisitados.contains(noDestino)) {
-      nosNaoVisitados.remove(Integer.valueOf(noOrigem));
-      nosNaoVisitados.remove(Integer.valueOf(noDestino));
-    }
-    // getNosNaoVisitados();
-    addVisitedNode(noOrigem, noDestino);
-  }
-
-  public void addVisitedNode(final int noOrigem, final int noDestino) {
-    nosVisitados.add(noOrigem);
-    nosVisitados.add(noDestino);
-  }
-
-  public void getDistanciaConhecida() {
-
-    getPeso(noOrigem, noDestino)
+    return distanciaLista.stream().map(Map.Entry::getValue).toList();
   }
 
 }

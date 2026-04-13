@@ -22,9 +22,8 @@ public class Main {
     dijkstra.criarAresta(S4, S5, 6);
     dijkstra.criarAresta(S5, S6, 6);
     dijkstra.criarAresta(S4, S6, 2);
-    dijkstra.getDistanciaNaoConhecida();
-    dijkstra.getNoMaisProximo(S0);
-    dijkstra.getDistanciaConhecida();
+    dijkstra.getCaminho();
+    dijkstra.getDistancia();
 
   }
 }
